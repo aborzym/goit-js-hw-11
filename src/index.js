@@ -21,15 +21,7 @@ form.addEventListener('submit', (ev) => {
         );
       } else {
         for (let i = 0; i < 10; i++) {
-          const singlePhotoData = ({
-            largeImageURL,
-            webformatURL,
-            tags,
-            likes,
-            views,
-            comments,
-            downloads,
-          } = data[i]);
+          const singlePhotoData = data[i];
           gallery.insertAdjacentHTML(
             'beforeend',
             makeSinglePhotoHTML(singlePhotoData)
