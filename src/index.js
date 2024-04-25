@@ -20,17 +20,16 @@ form.addEventListener('submit', (ev) => {
           'Sorry, there are no images matching your search query. Please try again.'
         );
       } else {
-        for (let i = 0; i < 40; i++) {
+        for (let i = 0; i < 10; i++) {
           const singlePhotoData = ({
-            largeImageURL, //link do dużego obrazka
-            webformatURL, //link do małego obrazka.
-            tags, //wiersz z opisem obrazka. Będzie pasować do atrybutu alt.
-            likes, //liczba “lajków”.
-            views, //liczba wyświetleń.
-            comments, //liczba komentarzy
-            downloads, //liczba pobrań.
+            largeImageURL,
+            webformatURL,
+            tags,
+            likes,
+            views,
+            comments,
+            downloads,
           } = data[i]);
-          console.log(largeImageURL);
           gallery.insertAdjacentHTML(
             'beforeend',
             makeSinglePhotoHTML(singlePhotoData)
