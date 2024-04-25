@@ -38,4 +38,35 @@ input {
 
 h1 {
   color: wheat;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.photo-card {
+  border: 1px solid black;
+}
+
+.gallery img {
+  width: 400px;
+  height: 300px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }/*# sourceMappingURL=index.css.map */
