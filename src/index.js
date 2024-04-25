@@ -11,6 +11,7 @@ loadBtn.classList.add('hidden');
 
 form.addEventListener('submit', (ev) => {
   ev.preventDefault();
+
   const searchQuery = form.elements.searchQuery.value;
 
   getPhotos(searchQuery)
@@ -20,6 +21,7 @@ form.addEventListener('submit', (ev) => {
           'Sorry, there are no images matching your search query. Please try again.'
         );
       } else {
+        gallery.innerHTML = '';
         for (let i = 0; i < 10; i++) {
           const singlePhotoData = data[i];
           gallery.insertAdjacentHTML(
