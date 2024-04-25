@@ -1,14 +1,14 @@
 import axios from 'axios';
-axios.defaults.headers.common['x-api-key'] =
-  '43544421-ff44ea561dacf5e24c1a430ca';
+
+const apiKey = '43544421-ff44ea561dacf5e24c1a430ca';
 
 export const getPhotos = async (searchQuery) => {
+  const url = `https://pixabay.com/api/?key=${apiKey}&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true`;
   await axios
-    .get(
-      `https://pixabay.com/api/?key=43544421-ff44ea561dacf5e24c1a430ca&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true`
-    )
+    .get(`${url}`)
     .then((info) => {
-      return info.data;
+      console.log(info.data.hits);
+      return info.data.hits;
     })
     .catch((err) => {
       console.log(err.message);

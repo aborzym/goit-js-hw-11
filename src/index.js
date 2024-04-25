@@ -1,7 +1,5 @@
 import { getPhotos } from './data';
 import axios from 'axios';
-axios.defaults.headers.common['x-api-key'] =
-  '43544421-ff44ea561dacf5e24c1a430ca';
 
 import { Notify } from 'notiflix';
 
@@ -9,9 +7,13 @@ const form = document.querySelector('form.search-form');
 const gallery = document.querySelector('div.gallery');
 const loadBtn = document.querySelector('button.load-more');
 loadBtn.classList.add('hidden');
-getPhotos('asshole')
-  .then((info) => {
-    console.log(info);
+
+getPhotos('maserati')
+  .then((data) => {
+    console.log(data[0]);
+  })
+  .catch((err) => {
+    console.log(err);
   })
   .finally(() => console.log('all done'));
 
