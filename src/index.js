@@ -13,7 +13,9 @@ let gallerySL = new SimpleLightbox('.gallery a');
 const form = document.querySelector('form.search-form');
 const gallery = document.querySelector('div.gallery');
 const loadBtn = document.querySelector('button.load-more');
+const previousBtn = document.querySelector('button.load-previous');
 loadBtn.classList.add('hidden');
+previousBtn.classList.add('hidden');
 
 let totalHits;
 form.addEventListener('submit', (ev) => {
@@ -37,6 +39,8 @@ form.addEventListener('submit', (ev) => {
             makeSinglePhotoHTML(singlePhotoData)
           );
         }
+        loadBtn.classList.remove('hidden');
+        previousBtn.classList.remove('hidden');
       }
     })
     .catch();

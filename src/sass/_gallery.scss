@@ -10,24 +10,33 @@
 .image {
   width: 400px;
   height: 300px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .info {
+  padding-inline: 1rem;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-
-  gap: 15px;
+  justify-content: space-between;
+  // gap: 1rem;
+  padding-block: 10px;
 }
 
 .info-item {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+.load-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
 }

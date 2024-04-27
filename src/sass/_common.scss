@@ -14,6 +14,11 @@ body {
 button {
   border-radius: 20px;
   padding: 10px;
+
+  &:hover {
+    background-color: rgb(34, 58, 163);
+    color: rgb(245, 232, 209);
+  }
 }
 form {
   padding-block: 30px;
