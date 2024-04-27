@@ -1,14 +1,16 @@
-import { getPhotos, makeSinglePhotoHTML } from './data';
+import { getPhotos, makeSinglePhotoHTML, page, perPage } from './data';
 import axios from 'axios';
 import { error } from 'console';
-
 import { Notify } from 'notiflix';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const form = document.querySelector('form.search-form');
 const gallery = document.querySelector('div.gallery');
 const loadBtn = document.querySelector('button.load-more');
 loadBtn.classList.add('hidden');
 
+let totalHits;
 form.addEventListener('submit', (ev) => {
   ev.preventDefault();
 
@@ -16,14 +18,15 @@ form.addEventListener('submit', (ev) => {
 
   getPhotos(searchQuery)
     .then((data) => {
-      if (data.length === 0) {
+      totalHits = data.totalHits;
+      if (data.hits.length === 0) {
         Notify.failure(
           'Sorry, there are no images matching your search query. Please try again.'
         );
       } else {
         gallery.innerHTML = '';
-        for (let i = 0; i < 10; i++) {
-          const singlePhotoData = data[i];
+        for (let i = 0; i < perPage; i++) {
+          const singlePhotoData = data.hits[i];
           gallery.insertAdjacentHTML(
             'beforeend',
             makeSinglePhotoHTML(singlePhotoData)
@@ -33,22 +36,3 @@ form.addEventListener('submit', (ev) => {
     })
     .catch();
 });
-
-//SZABLON ELEMENTU GALERII
-//   <div class="photo-card">
-//     <img src="" alt="" loading="lazy" />
-//     <div class="info">
-//       <p class="info-item">
-//         <b>Likes</b>
-//       </p>
-//       <p class="info-item">
-//         <b>Views</b>
-//       </p>
-//       <p class="info-item">
-//         <b>Comments</b>
-//       </p>
-//       <p class="info-item">
-//         <b>Downloads</b>
-//       </p>
-//     </div>
-//   </div>;
