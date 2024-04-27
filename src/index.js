@@ -5,6 +5,14 @@ import { Notify } from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+// let gallerySL = new SimpleLightbox('.gallery a', {
+//   captionsData: 'alt',
+//   captionDelay: 250,
+// });
+// gallerySL.on('show.simplelightbox', function () {
+//   // do something…
+// });
+
 const form = document.querySelector('form.search-form');
 const gallery = document.querySelector('div.gallery');
 const loadBtn = document.querySelector('button.load-more');

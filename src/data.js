@@ -17,8 +17,8 @@ export const getPhotos = async (searchQuery) => {
 };
 
 export const makeSinglePhotoHTML = (photo) => {
-  return `<div class="photo-card">
-    <img class="image" src="${photo.webformatURL}" alt="${photo.tags}" loading="lazy" />
+  return `
+    <a class="photo-card" href=${photo.largeImageURL}><img class="image" src="${photo.webformatURL}" alt="${photo.tags}" title="tags: ${photo.tags}" loading="lazy" />
     <div class="info">
       <p class="info-item">
         <b>Likes</b>${photo.likes}
@@ -32,6 +32,23 @@ export const makeSinglePhotoHTML = (photo) => {
       <p class="info-item">
         <b>Downloads</b>${photo.downloads}
       </p>
-    </div>
-  </div>`;
+    </div></a>`;
 };
+
+// return `<div class="photo-card">
+//     <img class="image" src="${photo.webformatURL}" alt="${photo.tags}" loading="lazy" />
+//     <div class="info">
+//       <p class="info-item">
+//         <b>Likes</b>${photo.likes}
+//       </p>
+//       <p class="info-item">
+//         <b>Views</b>${photo.views}
+//       </p>
+//       <p class="info-item">
+//         <b>Comments</b>${photo.comments}
+//       </p>
+//       <p class="info-item">
+//         <b>Downloads</b>${photo.downloads}
+//       </p>
+//     </div>
+//   </div>`;
