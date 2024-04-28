@@ -1,9 +1,8 @@
 import axios from 'axios';
-export let page = 1;
 export const perPage = 40;
 const apiKey = '43544421-ff44ea561dacf5e24c1a430ca';
 
-export const getPhotos = async (searchQuery) => {
+export const getPhotos = async (searchQuery, page) => {
   const url = `https://pixabay.com/api/?key=${apiKey}&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${perPage}`;
   return await axios
     .get(`${url}`)
