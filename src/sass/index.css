@@ -52,7 +52,11 @@ h1 {
 }
 
 .photo-card {
-  border: 1px solid black;
+  box-shadow: 7px 7px 7px rgb(173, 155, 123);
+}
+.photo-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .image {
